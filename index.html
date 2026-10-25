@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'Arc en Ciel des Saveurs — Artisan Traiteur à Marange-Silvange</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#FDFBF7',
+                        sand: '#F5EFE6',
+                        emeraldDeep: '#0D2B22',
+                        emeraldRich: '#164235',
+                        terracotta: '#C85A32',
+                        goldWarm: '#D4A359',
+                        goldLight: '#F3E5AB',
+                        valentineDeep: '#4A0E1C',
+                        valentineRose: '#8C1D38',
+                        valentineBlush: '#FDE8EE',
+                        noelPine: '#0A291E',
+                        noelRed: '#9E1B1B'
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FDFBF7;
+            color: #0D2B22;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, .font-serif {
+            font-family: 'Cormorant Garamond', serif;
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .glass-nav {
+            background: rgba(253, 251, 247, 0.92);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(212, 163, 89, 0.22);
+        }
+        .card-luxury {
+            transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .card-luxury:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 24px 48px -12px rgba(13, 43, 34, 0.16);
+        }
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+        .float-badge {
+            animation: floatSlow 4s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="selection:bg-terracotta selection:text-white">
+
+    <!-- NAVIGATION PRINCIPALE (Sans aucune barre au-dessus) -->
+    <header class="glass-nav sticky top-0 z-40 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+            <a href="#" class="flex items-center gap-3.5 group shrink-0">
+                <div class="w-14 h-14 rounded-full p-0.5 bg-gradient-to-tr from-terracotta via-goldWarm to-emerald-500 shadow-md overflow-hidden flex items-center justify-center bg-white shrink-0">
+                    <img id="siteLogoImg" src="001 (8).jpg" alt="Logo L'Arc en Ciel des Saveurs" class="w-full h-full object-contain rounded-full bg-white p-0.5">
+                </div>
+                <div>
+                    <span class="font-serif text-2xl sm:text-3xl font-bold tracking-tight text-emeraldDeep block leading-none">
+                        L'Arc en Ciel <span class="italic font-normal text-terracotta">des Saveurs</span>
+                    </span>
+                    <span class="text-[11px] uppercase tracking-[0.18em] text-emeraldDeep/70 font-medium block mt-1">
+                        Artisan Traiteur • Marange-Silvange (57535)
+                    </span>
+                </div>
+            </a>
+
+            <nav class="hidden xl:flex items-center gap-7 text-sm font-medium text-emeraldDeep/85">
+                <a href="#collections" class="hover:text-terracotta transition whitespace-nowrap">Collections & Cartes</a>
+                <a href="#formules-fetes" class="hover:text-terracotta transition whitespace-nowrap">Saint-Valentin & Noël</a>
+                <a href="#galerie" class="hover:text-terracotta transition whitespace-nowrap">Album Photos</a>
+                <a href="#devis" class="hover:text-terracotta transition whitespace-nowrap">Composer mon Devis</a>
+                <a href="#contact" class="hover:text-terracotta transition whitespace-nowrap">Contact</a>
+            </nav>
+
+            <div class="flex items-center gap-3 shrink-0">
+                <!-- Numéro de téléphone forcé sur UNE SEULE LIGNE -->
+                <a href="tel:0618814911" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-emeraldDeep/20 text-sm font-semibold hover:bg-emeraldDeep hover:text-cream transition whitespace-nowrap shrink-0">
+                    <i data-lucide="phone" class="w-4 h-4 text-terracotta shrink-0"></i>
+                    <span class="whitespace-nowrap">06 18 81 49 11</span>
+                </a>
+                <a href="#devis" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-terracotta text-white text-sm font-semibold shadow-lg shadow-terracotta/25 hover:bg-emeraldDeep transition whitespace-nowrap shrink-0">
+                    <span>Commander</span>
+                    <i data-lucide="arrow-up-right" class="w-4 h-4 shrink-0"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative pt-10 pb-20 lg:pt-16 lg:pb-28 overflow-hidden">
+        <div class="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-goldWarm/15 blur-3xl pointer-events-none"></div>
+        <div class="absolute top-1/2 -left-32 w-96 h-96 rounded-full bg-terracotta/10 blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <!-- Colonne Texte -->
+                <div class="lg:col-span-6 space-y-6 reveal active">
+                    <!-- Lien Facebook avec 1,8 K abonnés remplaçant l'ancienne mention -->
+                    <a href="https://www.facebook.com/profile.php?id=100064292120955" target="_blank" rel="noopener noreferrer"
+                       class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[#1877F2]/10 hover:bg-[#1877F2] text-[#1877F2] hover:text-white border border-[#1877F2]/30 text-xs font-bold uppercase tracking-widest transition duration-300 shadow-sm group">
+                        <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                        <span class="underline underline-offset-4 decoration-[#1877F2]/50 group-hover:decoration-white">Suivez-nous sur Facebook • 1,8 K abonnés</span>
+                        <i data-lucide="external-link" class="w-3.5 h-3.5 shrink-0"></i>
+                    </a>
+
+                    <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.04] text-emeraldDeep">
+                        L'émotion du <span class="italic font-normal text-terracotta">fait-maison</span> pour toutes vos réceptions.
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-emeraldDeep/80 leading-relaxed max-w-xl">
+                        À <strong>Marange-Silvange</strong>, Maïté sublime vos apéritifs dînatoires, buffets festifs, soirées de Saint-Valentin et repas de Noël avec des créations artisanales généreuses, fraîches et colorées.
+                    </p>
+
+                    <div class="flex flex-wrap items-center gap-4 pt-2">
+                        <a href="#devis" class="px-7 py-4 rounded-full bg-emeraldDeep text-cream font-semibold text-sm hover:bg-terracotta transition shadow-xl flex items-center gap-2.5">
+                            <i data-lucide="utensils" class="w-4 h-4 text-goldWarm"></i>
+                            <span>Composer mon buffet sur-mesure</span>
+                        </a>
+                        <a href="#formules-fetes" class="px-6 py-4 rounded-full bg-white border border-emeraldDeep/15 text-emeraldDeep font-semibold text-sm hover:border-terracotta transition flex items-center gap-2">
+                            <i data-lucide="sparkles" class="w-4 h-4 text-terracotta"></i>
+                            <span>Découvrir les Formules Fêtes</span>
+                        </a>
+                    </div>
+
+                    <!-- Chiffres Clés (sans la mention 30 avis) -->
+                    <div class="grid grid-cols-3 gap-4 pt-6 border-t border-emeraldDeep/10">
+                        <div>
+                            <div class="font-serif text-3xl font-bold text-terracotta">100%</div>
+                            <div class="text-xs text-emeraldDeep/70 font-medium">Fait Maison & Frais</div>
+                        </div>
+                        <div>
+                            <a href="https://www.facebook.com/profile.php?id=100064292120955" target="_blank" class="block hover:opacity-80 transition">
+                                <div class="font-serif text-3xl font-bold text-[#1877F2]">1,8 K</div>
+                                <div class="text-xs text-emeraldDeep/70 font-medium underline">Abonnés Facebook</div>
+                            </a>
+                        </div>
+                        <div>
+                            <div class="font-serif text-3xl font-bold text-goldWarm">Sur-Mesure</div>
+                            <div class="text-xs text-emeraldDeep/70 font-medium">Mariages, Noël & Duo</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Colonne Bento Visuel avec étiquettes exactes -->
+                <div class="lg:col-span-6 relative reveal active">
+                    <div class="grid grid-cols-12 gap-4 items-stretch">
+                        <div class="col-span-7 space-y-4">
+                            <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-[4/5] group">
+                                <img src="001 (3).jpg" alt="Feuilletés & Plateaux Apéritifs" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-emeraldDeep/85 via-transparent to-transparent flex items-end p-5">
+                                    <div class="text-cream">
+                                        <span class="text-[11px] uppercase tracking-widest text-goldLight font-semibold">Pièces Cocktail</span>
+                                        <p class="font-serif text-2xl font-bold">Plateaux Prestige & Feuilletés</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-span-5 flex flex-col justify-between gap-4">
+                            <div class="relative rounded-3xl overflow-hidden shadow-xl border-4 border-white aspect-square group">
+                                <img src="001 (44).jpg" alt="Pain Polaire 50 pièces" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                                <div class="absolute bottom-3 left-3 right-3 bg-white/95 backdrop-blur-md px-3 py-2 rounded-2xl shadow">
+                                    <p class="text-xs font-bold text-emeraldDeep">Pain Polaire Garnis</p>
+                                    <p class="text-[11px] text-terracotta font-semibold">Plateau 50 pièces</p>
+                                </div>
+                            </div>
+                            <div class="relative rounded-3xl overflow-hidden shadow-xl border-4 border-white aspect-[4/3] group">
+                                <img src="001 (46).jpg" alt="Pain Surprise 22€" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                                <div class="absolute bottom-3 left-3 right-3 bg-emeraldDeep/90 backdrop-blur-md px-3 py-2 rounded-2xl text-cream">
+                                    <p class="text-xs font-bold text-goldLight">Pain Surprise Maison</p>
+                                    <p class="text-[11px] opacity-90">22 € • Sur commande</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Badge flottant -->
+                    <div class="float-badge absolute -bottom-5 left-6 bg-white rounded-2xl p-4 shadow-xl border border-goldWarm/30 flex items-center gap-3.5">
+                        <div class="w-11 h-11 rounded-xl bg-terracotta/15 flex items-center justify-center text-terracotta">
+                            <i data-lucide="award" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold uppercase tracking-wider text-emeraldDeep">Artisan Traiteur Créatif</p>
+                            <p class="text-xs text-emeraldDeep/70">Apéritifs, Noël, Saint-Valentin & Réceptions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 1 : LES INCONTOURNABLES & PLATEAUX APÉRITIFS (Photos 100% correspondantes) -->
+    <section id="collections" class="py-20 bg-sand/70 border-y border-goldWarm/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 reveal">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-[0.25em] text-terracotta block mb-2">Catalogue des Prestations</span>
+                    <h2 class="font-serif text-4xl sm:text-5xl font-bold text-emeraldDeep">
+                        Les Incontournables & <span class="italic font-normal text-terracotta">Créations Salées</span>
+                    </h2>
+                </div>
+                <p class="text-sm text-emeraldDeep/75 max-w-md">
+                    Toutes nos pièces apéritives sont préparées artisanalement à la commande pour garantir une fraîcheur irréprochable.
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Carte 1 : Verrines salées (001 (24).jpg) -->
+                <article class="bg-white rounded-3xl overflow-hidden shadow-md border border-goldWarm/20 card-luxury flex flex-col reveal">
+                    <div class="relative aspect-[4/3] overflow-hidden bg-emeraldDeep/5">
+                        <img src="001 (24).jpg" alt="Proposition de verrines salées" class="w-full h-full object-cover">
+                        <span class="absolute top-4 right-4 bg-terracotta text-white text-xs font-bold px-3.5 py-1.5 rounded-full shadow">
+                            1,20 € / verrine
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-[11px] font-bold uppercase tracking-widest text-goldWarm">Fraîcheur & Couleurs</span>
+                            <h3 class="font-serif text-2xl font-bold text-emeraldDeep mt-1">Proposition de Verrines Salées</h3>
+                            <p class="text-sm text-emeraldDeep/75 mt-2 leading-relaxed">
+                                Compotée de tomates & chantilly salée, taboulé aux trois poivrons, mousse de thon & radis croquants dressés à la minute.
+                            </p>
+                        </div>
+                        <button onclick="addItemToQuote('Proposition de Verrines Salées (1,20€/p)')" class="mt-5 w-full py-3 rounded-xl bg-sand hover:bg-emeraldDeep hover:text-cream text-emeraldDeep font-semibold text-xs uppercase tracking-wider transition flex items-center justify-center gap-2">
+                            <i data-lucide="plus-circle" class="w-4 h-4"></i> Ajouter à ma sélection
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Carte 2 : La Couronne Apéritive (001 (45).jpg) -->
+                <article class="bg-white rounded-3xl overflow-hidden shadow-md border border-goldWarm/20 card-luxury flex flex-col reveal">
+                    <div class="relative aspect-[4/3] overflow-hidden bg-emeraldDeep/5">
+                        <img src="001 (45).jpg" alt="La Couronne Apéritive 15 parts" class="w-full h-full object-cover">
+                        <span class="absolute top-4 right-4 bg-emeraldDeep text-goldLight text-xs font-bold px-3.5 py-1.5 rounded-full shadow">
+                            15 € • 15 Parts
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-[11px] font-bold uppercase tracking-widest text-terracotta">Pièce Conviviale</span>
+                            <h3 class="font-serif text-2xl font-bold text-emeraldDeep mt-1">La Couronne Apéritive</h3>
+                            <p class="text-sm text-emeraldDeep/75 mt-2 leading-relaxed">
+                                Couronne moelleuse généreusement garnie de charcuteries fines, fromages frais, tomates cerises et crudités. Environ 15 parts.
+                            </p>
+                        </div>
+                        <button onclick="addItemToQuote('La Couronne Apéritive (15€ - 15 parts)')" class="mt-5 w-full py-3 rounded-xl bg-sand hover:bg-emeraldDeep hover:text-cream text-emeraldDeep font-semibold text-xs uppercase tracking-wider transition flex items-center justify-center gap-2">
+                            <i data-lucide="plus-circle" class="w-4 h-4"></i> Ajouter à ma sélection
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Carte 3 : Trio de Baguettes Pizza (001 (52).jpg) -->
+                <article class="bg-white rounded-3xl overflow-hidden shadow-md border border-goldWarm/20 card-luxury flex flex-col reveal">
+                    <div class="relative aspect-[4/3] overflow-hidden bg-emeraldDeep/5">
+                        <img src="001 (52).jpg" alt="Trio de baguettes pizza à partager" class="w-full h-full object-cover">
+                        <span class="absolute top-4 right-4 bg-goldWarm text-emeraldDeep text-xs font-bold px-3.5 py-1.5 rounded-full shadow">
+                            15 € le Trio
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-[11px] font-bold uppercase tracking-widest text-goldWarm">À Partager</span>
+                            <h3 class="font-serif text-2xl font-bold text-emeraldDeep mt-1">Trio de Baguettes Pizza</h3>
+                            <p class="text-sm text-emeraldDeep/75 mt-2 leading-relaxed">
+                                3 baguettes croustillantes garnies et gratinées : <strong>Margarita</strong>, <strong>Reine</strong> et <strong>Chèvre-Miel</strong>, prêtes à partager.
+                            </p>
+                        </div>
+                        <button onclick="addItemToQuote('Trio de Baguettes Pizza (15€)')" class="mt-5 w-full py-3 rounded-xl bg-sand hover:bg-emeraldDeep hover:text-cream text-emeraldDeep font-semibold text-xs uppercase tracking-wider transition flex items-center justify-center gap-2">
+                            <i data-lucide="plus-circle" class="w-4 h-4"></i> Ajouter à ma sélection
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Carte 4 : Trio de Tartinades (001 (43).jpg) -->
+                <article class="bg-white rounded-3xl overflow-hidden shadow-md border border-goldWarm/20 card-luxury flex flex-col reveal">
+                    <div class="relative aspect-[4/3] overflow-hidden bg-emeraldDeep/5">
+                        <img src="001 (43).jpg" alt="Trio de tartinades et petits pains" class="w-full h-full object-cover">
+                        <span class="absolute top-4 right-4 bg-emeraldDeep text-goldLight text-xs font-bold px-3.5 py-1.5 rounded-full shadow">
+                            28 € le plateau
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-[11px] font-bold uppercase tracking-widest text-terracotta">Idéal ~20 personnes</span>
+                            <h3 class="font-serif text-2xl font-bold text-emeraldDeep mt-1">Trio de Tartinades & Petits Pains</h3>
+                            <p class="text-sm text-emeraldDeep/75 mt-2 leading-relaxed">
+                                Trois recettes de tartinades maison sur plateau accompagnées de leurs petits pains toastés dorés et croquants.
+                            </p>
+                        </div>
+                        <button onclick="addItemToQuote('Trio de Tartinades et petits pains (28€)')" class="mt-5 w-full py-3 rounded-xl bg-sand hover:bg-emeraldDeep hover:text-cream text-emeraldDeep font-semibold text-xs uppercase tracking-wider transition flex items-center justify-center gap-2">
+                            <i data-lucide="plus-circle" class="w-4 h-4"></i> Ajouter à ma sélection
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Carte 5 : Pain Surprise Garnis (001 (46).jpg) -->
+                <article class="bg-white rounded-3xl overflow-hidden shadow-md border border-goldWarm/20 card-luxury flex flex-col reveal">
+                    <div class="relative aspect-[4/3] overflow-hidden bg-emeraldDeep/5">
+                        <img src="001 (46).jpg" alt="Pain Surprise Artisanal" class="w-full h-full object-cover">
+                        <span class="absolute top-4 right-4 bg-terracotta text-white text-xs font-bold px-3.5 py-1.5 rounded-full shadow">
+                            22 €
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-[11px] font-bold uppercase tracking-widest text-goldWarm">Fait Maison</span>
+                            <h3 class="font-serif text-2xl font-bold text-emeraldDeep mt-1">Pain Surprise & Pain Polaire</h3>
+                            <p class="text-sm text-emeraldDeep/75 mt-2 leading-relaxed">
+                                Pains surprises garnis de charcuteries fines, saumon et fromages, ou plateau de 50 pièces de pains polaires fondants.
+                            </p>
+                        </div>
+                        <button onclick="addItemToQuote('Pain Surprise Fait Maison (22€)')" class="mt-5 w-full py-3 rounded-xl bg-sand hover:bg-emeraldDeep hover:text-cream text-emeraldDeep font-semibold text-xs uppercase tracking-wider transition flex items-center justify-center gap-2">
+                            <i data-lucide="plus-circle" class="w-4 h-4"></i> Ajouter à ma sélection
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Carte 6 : Plateaux Signature & Mauricettes (001 (5).jpg) -->
+                <article class="bg-white rounded-3xl overflow-hidden shadow-md border border-goldWarm/20 card-luxury flex flex-col reveal">
+                    <div class="relative aspect-[4/3] overflow-hidden bg-emeraldDeep/5">
+                        <img src="001 (5).jpg" alt="Plateaux Mauricettes, Mini Burgers & Bouchées" class="w-full h-full object-cover">
+                        <span class="absolute top-4 right-4 bg-goldWarm text-emeraldDeep text-xs font-bold px-3.5 py-1.5 rounded-full shadow">
+                            Sur-Mesure
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-[11px] font-bold uppercase tracking-widest text-terracotta">Plateaux Signature</span>
+                            <h3 class="font-serif text-2xl font-bold text-emeraldDeep mt-1">Mauricettes, Mini Burgers & Bouchées</h3>
+                            <p class="text-sm text-emeraldDeep/75 mt-2 leading-relaxed">
+                                Assortiments de mini mauricettes garnies, mini burgers bœuf, navettes briochées, cannelés salés et petits bidules au saumon.
+                            </p>
+                        </div>
+                        <button onclick="addItemToQuote('Plateau Signature (Mauricettes, Mini Burgers, Bouchées)')" class="mt-5 w-full py-3 rounded-xl bg-sand hover:bg-emeraldDeep hover:text-cream text-emeraldDeep font-semibold text-xs uppercase tracking-wider transition flex items-center justify-center gap-2">
+                            <i data-lucide="plus-circle" class="w-4 h-4"></i> Ajouter à ma sélection
+                        </button>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2 : LES GRANDES FORMULES THÉMATIQUES (SAINT-VALENTIN & NOËL) -->
+    <section id="formules-fetes" class="py-24 bg-cream relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
+
+            <div class="text-center max-w-3xl mx-auto reveal">
+                <span class="text-xs font-bold uppercase tracking-[0.25em] text-terracotta block mb-2">Éditions Événementielles</span>
+                <h2 class="font-serif text-4xl sm:text-6xl font-bold text-emeraldDeep">
+                    Nos Formules <span class="italic font-normal text-terracotta">Saint-Valentin & Noël</span>
+                </h2>
+                <p class="text-sm sm:text-base text-emeraldDeep/75 mt-3">
+                    Des menus thématiques clés en main, imaginés et préparés avec passion pour célébrer vos plus beaux moments.
+                </p>
+            </div>
+
+            <!-- BLOC 1 : THÈME SAINT-VALENTIN (Avec l'affiche 001 (12).jpg) -->
+            <div class="rounded-[2.5rem] bg-gradient-to-br from-valentineDeep via-valentineRose to-[#2D0710] text-white p-8 sm:p-12 lg:p-14 shadow-2xl border-2 border-pink-300/30 relative overflow-hidden reveal">
+                <!-- Décorations coeurs lumineux -->
+                <div class="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-rose-400/20 blur-3xl pointer-events-none"></div>
+                <div class="absolute -bottom-24 -left-24 w-80 h-80 rounded-full bg-pink-500/20 blur-3xl pointer-events-none"></div>
+
+                <div class="grid lg:grid-cols-12 gap-10 items-center relative z-10">
+                    <!-- Visuel de l'offre de Saint-Valentin (001 (12).jpg) -->
+                    <div class="lg:col-span-5">
+                        <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-pink-200/40 group cursor-pointer"
+                             onclick="openLightbox('001 (12).jpg', 'Offre Saint-Valentin — L\'Italie s\'invite chez vous (50 € pour 2 personnes)', '')">
+                            <img src="001 (12).jpg" alt="Offre Saint-Valentin Menu 50€" class="w-full h-auto object-cover group-hover:scale-105 transition duration-700">
+                            <div class="absolute top-4 left-4 bg-rose-600/95 backdrop-blur-md text-white text-xs font-bold uppercase tracking-wider px-4 py-1.5 rounded-full flex items-center gap-1.5 shadow-lg">
+                                <i data-lucide="heart" class="w-3.5 h-3.5 fill-current text-pink-200"></i>
+                                <span>Spécial Saint-Valentin</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Détails du Menu Saint-Valentin -->
+                    <div class="lg:col-span-7 space-y-6">
+                        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/15 border border-pink-200/30 text-pink-100 text-xs font-bold uppercase tracking-widest">
+                            <i data-lucide="heart" class="w-3.5 h-3.5 fill-current text-rose-300"></i>
+                            Offre Romantique en Duo • 50 € pour 2 personnes
+                        </div>
+
+                        <h3 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-pink-100 leading-tight">
+                            Saint-Valentin : <span class="italic font-normal text-goldLight">« L'Italie s'invite chez vous »</span>
+                        </h3>
+
+                        <p class="text-sm sm:text-base text-pink-100/90 leading-relaxed">
+                            Un menu fait maison, aux saveurs italiennes authentiques, imaginé pour être partagé en amoureux sans passer la soirée en cuisine.
+                        </p>
+
+                        <div class="grid sm:grid-cols-3 gap-4 pt-2">
+                            <div class="bg-white/10 backdrop-blur-sm border border-pink-200/25 rounded-2xl p-5">
+                                <div class="flex items-center gap-2 text-goldLight font-bold text-xs uppercase tracking-widest mb-2">
+                                    <i data-lucide="wine" class="w-4 h-4"></i> 1. L'Apéritif
+                                </div>
+                                <ul class="text-xs sm:text-sm text-pink-50 space-y-1.5 leading-snug">
+                                    <li>• Mini panini jambon & mozzarella</li>
+                                    <li>• Mini burger bœuf, pesto & roquette</li>
+                                    <li>• Mini bruschetta tomate, mozza & balsamique</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-white/10 backdrop-blur-sm border border-pink-200/25 rounded-2xl p-5">
+                                <div class="flex items-center gap-2 text-goldLight font-bold text-xs uppercase tracking-widest mb-2">
+                                    <i data-lucide="utensils-crossed" class="w-4 h-4"></i> 2. Le Plat
+                                </div>
+                                <ul class="text-xs sm:text-sm text-pink-50 space-y-1.5 leading-snug">
+                                    <li>• Cappelletti faits maison</li>
+                                    <li>• Accompagnés de leur Focaccia maison au fromage</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-white/10 backdrop-blur-sm border border-pink-200/25 rounded-2xl p-5">
+                                <div class="flex items-center gap-2 text-goldLight font-bold text-xs uppercase tracking-widest mb-2">
+                                    <i data-lucide="sparkles" class="w-4 h-4"></i> 3. Le Dessert
+                                </div>
+                                <ul class="text-xs sm:text-sm text-pink-50 space-y-1.5 leading-snug">
+                                    <li>• Véritable Tiramisu café fait maison</li>
+                                    <li class="text-pink-200/80 text-xs pt-1 italic">Sur commande • Quantités limitées</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-pink-200/20">
+                            <div>
+                                <span class="text-xs uppercase tracking-widest text-pink-200 block">Tarif Unique Duo</span>
+                                <span class="font-serif text-4xl font-bold text-goldLight">50,00 € <span class="text-base font-sans font-normal text-pink-100/80">pour 2 personnes</span></span>
+                            </div>
+                            <button onclick="addItemToQuote('Formule Saint-Valentin « L\'Italie s\'invite chez vous » (50€ pour 2 pers.)')"
+                                    class="px-7 py-4 rounded-full bg-goldLight text-valentineDeep font-bold text-xs sm:text-sm uppercase tracking-wider hover:bg-white transition shadow-xl flex items-center gap-2">
+                                <i data-lucide="heart" class="w-4 h-4 fill-current text-valentineRose"></i>
+                                <span>Réserver la Formule Saint-Valentin</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BLOC 2 : THÈME NOËL & FÊTES DE FIN D'ANNÉE (Avec produit de Noël + cartes officielles) -->
+            <div class="rounded-[2.5rem] bg-gradient-to-br from-noelPine via-emeraldDeep to-[#071912] text-cream p-8 sm:p-12 lg:p-14 shadow-2xl border-2 border-goldWarm/40 relative overflow-hidden reveal">
+                <div class="absolute -top-24 -left-24 w-80 h-80 rounded-full bg-noelRed/20 blur-3xl pointer-events-none"></div>
+                <div class="absolute -bottom-24 -right-24 w-80 h-80 rounded-full bg-goldWarm/20 blur-3xl pointer-events-none"></div>
+
+                <div class="grid lg:grid-cols-12 gap-10 items-center relative z-10">
+                    <!-- Détails des Formules de Noël -->
+                    <div class="lg:col-span-7 space-y-6 order-2 lg:order-1">
+                        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-noelRed text-white border border-goldWarm/40 text-xs font-bold uppercase tracking-widest shadow">
+                            <i data-lucide="gift" class="w-3.5 h-3.5 text-goldLight"></i>
+                            Collection Féérique de Noël • Sur Commande
+                        </div>
+
+                        <h3 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-goldLight leading-tight">
+                            Nos Formules <span class="italic font-normal text-white">Apéritives & Bûches de Noël</span>
+                        </h3>
+
+                        <p class="text-sm sm:text-base text-cream/85 leading-relaxed">
+                            Des bouchées festives raffinées (Saint-Honoré de pain d'épices au foie gras, verrine au magret, mini bagel guacamole-crevette...) et des bûches artisanales préparées uniquement à base de mousses légères.
+                        </p>
+
+                        <!-- Les 4 vraies formules de Noël extraites du Drive -->
+                        <div class="grid sm:grid-cols-2 gap-4 pt-2">
+                            <!-- Formule 7 pièces -->
+                            <div class="bg-white/5 hover:bg-white/10 border border-goldWarm/30 rounded-2xl p-5 transition flex flex-col justify-between">
+                                <div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-xs font-bold uppercase tracking-wider text-goldWarm">Formule 7 Pièces</span>
+                                        <span class="bg-goldWarm text-emeraldDeep text-xs font-extrabold px-3 py-0.5 rounded-full">12 € / pers.</span>
+                                    </div>
+                                    <h4 class="font-serif text-2xl font-bold text-white mt-1">Apéritif de Noël</h4>
+                                    <p class="text-xs text-cream/80 mt-2 leading-relaxed">
+                                        Mini burger bœuf, Mauricette jambon cru, Cube chèvre frais, Triangle chantilly pesto, <strong>Saint-Honoré pain d'épices & tourbillon de foie gras</strong>, Mini bagel guacamole crevette, Mini croque étoilé.
+                                    </p>
+                                </div>
+                                <button onclick="addItemToQuote('Formule Apéritif de Noël - 7 pièces (12€/pers.)')" class="mt-4 text-xs font-bold text-goldLight hover:underline flex items-center gap-1.5">
+                                    <i data-lucide="plus-circle" class="w-4 h-4"></i> Ajouter cette formule
+                                </button>
+                            </div>
+
+                            <!-- Formule 18 pièces -->
+                            <div class="bg-white/5 hover:bg-white/10 border border-goldWarm/30 rounded-2xl p-5 transition flex flex-col justify-between">
+                                <div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-xs font-bold uppercase tracking-wider text-noelRed bg-goldLight px-2.5 py-0.5 rounded-full">Repas Complet • 18 Pièces</span>
+                                        <span class="bg-terracotta text-white text-xs font-extrabold px-3 py-0.5 rounded-full">25 € / pers.</span>
+                                    </div>
+                                    <h4 class="font-serif text-2xl font-bold text-white mt-1">Apéritif Dînatoire Noël</h4>
+                                    <p class="text-xs text-cream/80 mt-2 leading-relaxed">
+                                        Remplace le repas principal : inclut les créations au foie gras, crevettes, mini croque de Noël, <strong>verrine de Noël au magret de canard</strong> et mini pizza étoilée.
+                                    </p>
+                                </div>
+                                <button onclick="addItemToQuote('Formule Apéritif Dînatoire de Noël - 18 pièces (25€/pers.)')" class="mt-4 text-xs font-bold text-goldLight hover:underline flex items-center gap-1.5">
+                                    <i data-lucide="plus-circle" class="w-4 h-4"></i> Ajouter cette formule
+                                </button>
+                            </div>
+
+                            <!-- Formule Enfant -->
+                            <div class="bg-white/5 hover:bg-white/10 border border-goldWarm/30 rounded-2xl p-5 transition flex flex-col justify-between">
+                                <div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-xs font-bold uppercase tracking-wider text-goldWarm">Formule « Jeune »</span>
+                                        <span class="bg-white/15 text-goldLight text-xs font-bold px-3 py-0.5 rounded-full">9,50 € ou 13,50 €</span>
+                                    </div>
+                                    <h4 class="font-serif text-2xl font-bold text-white mt-1">Menu Noël Enfant (-15 ans)</h4>
+                                    <p class="text-xs text-cream/80 mt-2 leading-relaxed">
+                                        Mini mauricette jambon, mini croque-monsieur, mini hot-dog, mini burger bœuf, mini pizza étoile et <strong>sapin feuilleté au chorizo</strong> (6 pièces à 9,50 € ou 10 pièces à 13,50 €).
+                                    </p>
+                                </div>
+                                <button onclick="addItemToQuote('Formule Noël Enfant « Jeune » (9,50€ / 13,50€)')" class="mt-4 text-xs font-bold text-goldLight hover:underline flex items-center gap-1.5">
+                                    <i data-lucide="plus-circle" class="w-4 h-4"></i> Ajouter cette formule
+                                </button>
+                            </div>
+
+                            <!-- Les Bûches de Noël -->
+                            <div class="bg-white/5 hover:bg-white/10 border border-goldWarm/30 rounded-2xl p-5 transition flex flex-col justify-between">
+                                <div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-xs font-bold uppercase tracking-wider text-goldWarm">Desserts (10 parts)</span>
+                                        <span class="bg-goldWarm text-emeraldDeep text-xs font-extrabold px-3 py-0.5 rounded-full">45 € / 55 €</span>
+                                    </div>
+                                    <h4 class="font-serif text-2xl font-bold text-white mt-1">Les Bûches Mousse Légère</h4>
+                                    <p class="text-xs text-cream/80 mt-2 leading-relaxed">
+                                        Sans crème au beurre : <em>La Féérie Chocolatée</em> (3 chocolats), <em>Le Noël Acidulé</em> (framboise-citron), <em>La Forêt Enchantée</em>, <em>Café Gourmand</em> (45 €) ou <em>Prestige Ferrero Rocher</em> (55 €).
+                                    </p>
+                                </div>
+                                <button onclick="addItemToQuote('Bûche de Noël Artisanale (10 parts - 45€/55€)')" class="mt-4 text-xs font-bold text-goldLight hover:underline flex items-center gap-1.5">
+                                    <i data-lucide="plus-circle" class="w-4 h-4"></i> Ajouter une bûche
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Visuel Produit de Noël + Cartes de Noël (001 (15).jpg & 001 (60).jpg) -->
+                    <div class="lg:col-span-5 space-y-4 order-1 lg:order-2">
+                        <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-goldWarm/50 aspect-[4/3] group cursor-pointer"
+                             onclick="openLightbox('001 (15).jpg', 'Créations Festives & Brochettes Fraîcheur de Noël', '')">
+                            <img src="001 (15).jpg" alt="Création festive de Noël" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-noelPine/90 via-transparent to-transparent flex items-end p-5">
+                                <div>
+                                    <span class="bg-noelRed text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">Fait Maison pour les Fêtes</span>
+                                    <p class="font-serif text-2xl font-bold text-goldLight mt-1.5">Plateaux & Bouchées Festives de Noël</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="relative rounded-2xl overflow-hidden border-2 border-goldWarm/40 aspect-[4/3] cursor-pointer group"
+                                 onclick="openLightbox('001 (60).jpg', 'Carte Apéritif de Noël — 7 Pièces (12 €/pers)', '')">
+                                <img src="001 (60).jpg" alt="Carte Apéritif de Noël" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                <div class="absolute bottom-2 left-2 right-2 bg-noelPine/90 backdrop-blur-sm px-2.5 py-1.5 rounded-xl text-center">
+                                    <span class="text-[11px] font-bold text-goldLight">Voir la Carte 7 Pièces</span>
+                                </div>
+                            </div>
+                            <div class="relative rounded-2xl overflow-hidden border-2 border-goldWarm/40 aspect-[4/3] cursor-pointer group"
+                                 onclick="openLightbox('001 (64).jpg', 'Carte des Bûches Artisanalement Gourmandes', '')">
+                                <img src="001 (64).jpg" alt="Carte des Bûches de Noël" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                <div class="absolute bottom-2 left-2 right-2 bg-noelPine/90 backdrop-blur-sm px-2.5 py-1.5 rounded-xl text-center">
+                                    <span class="text-[11px] font-bold text-goldLight">Voir la Carte des Bûches</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 3 : L'ALBUM PHOTOS INTERACTIF (Sans le logo 001 (8) ni l'affiche 001 (12), remplacés par de vrais produits) -->
+    <section id="galerie" class="py-20 bg-sand/50 border-t border-goldWarm/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6 reveal">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-[0.25em] text-terracotta block mb-2">Galerie Gourmande</span>
+                    <h2 class="font-serif text-4xl sm:text-5xl font-bold text-emeraldDeep">
+                        Nos Réalisations en <span class="italic font-normal text-terracotta">Images</span>
+                    </h2>
+                </div>
+
+                <!-- Filtres d'albums -->
+                <div class="flex flex-wrap gap-2">
+                    <button onclick="filterGallery('all')" class="gal-filter px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-emeraldDeep text-cream transition" data-filter="all">Toutes les Créations</button>
+                    <button onclick="filterGallery('plateaux')" class="gal-filter px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-white text-emeraldDeep hover:bg-emeraldDeep hover:text-cream transition" data-filter="plateaux">Plateaux & Salés</button>
+                    <button onclick="filterGallery('pains')" class="gal-filter px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-white text-emeraldDeep hover:bg-emeraldDeep hover:text-cream transition" data-filter="pains">Pains Surprises & Couronnes</button>
+                    <button onclick="filterGallery('sucre')" class="gal-filter px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-white text-emeraldDeep hover:bg-emeraldDeep hover:text-cream transition" data-filter="sucre">Douceurs & Sucrés</button>
+                </div>
+            </div>
+
+            <!-- Grille dynamique de photos -->
+            <div id="photoGalleryGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+                <!-- Généré par JS avec uniquement des photos de produits réels -->
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4 : CONFIGURATEUR DE DEVIS SUR-MESURE -->
+    <section id="devis" class="py-20 bg-cream border-t border-goldWarm/20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl shadow-xl border border-goldWarm/30 p-8 sm:p-12 reveal">
+                <div class="text-center max-w-2xl mx-auto mb-8">
+                    <span class="text-xs font-bold uppercase tracking-[0.25em] text-terracotta">Réservation Directe</span>
+                    <h2 class="font-serif text-4xl font-bold text-emeraldDeep mt-1">Composez votre demande de devis</h2>
+                    <p class="text-sm text-emeraldDeep/70 mt-2">
+                        Sélectionnez vos formules ou plateaux et envoyez directement votre récapitulatif à Maïté sur WhatsApp ou par email.
+                    </p>
+                </div>
+
+                <div class="grid sm:grid-cols-3 gap-4 mb-6">
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-emeraldDeep mb-2">Type d'événement</label>
+                        <select id="eventType" class="w-full rounded-xl border border-emeraldDeep/20 px-4 py-3 text-sm bg-cream focus:outline-none focus:border-terracotta">
+                            <option>Apéritif Dînatoire / Anniversaire</option>
+                            <option>Formule Saint-Valentin (50€ / 2 pers.)</option>
+                            <option>Commande de Noël & Bûches</option>
+                            <option>Mariage / Vin d'honneur</option>
+                            <option>Baptême / Réception familiale</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-emeraldDeep mb-2">Nombre de convives</label>
+                        <input type="number" id="guestCount" value="15" min="2" max="300" class="w-full rounded-xl border border-emeraldDeep/20 px-4 py-3 text-sm bg-cream focus:outline-none focus:border-terracotta">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-emeraldDeep mb-2">Date souhaitée</label>
+                        <input type="date" id="eventDate" class="w-full rounded-xl border border-emeraldDeep/20 px-4 py-3 text-sm bg-cream focus:outline-none focus:border-terracotta">
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <label class="block text-xs font-bold uppercase tracking-wider text-emeraldDeep mb-2">Vos spécialités & formules sélectionnées</label>
+                    <div id="selectedItemsList" class="min-h-[56px] p-4 rounded-2xl bg-cream border border-goldWarm/30 flex flex-wrap gap-2 items-center text-sm text-emeraldDeep/80">
+                        <span class="text-xs italic text-emeraldDeep/50">Cliquez sur « Ajouter » sur les cartes ou formules ci-dessus pour remplir votre panier...</span>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <label class="block text-xs font-bold uppercase tracking-wider text-emeraldDeep mb-2">Précisions ou envies particulières</label>
+                    <textarea id="customNotes" rows="3" placeholder="Ex : 1 Formule Saint-Valentin, ou 2 couronnes apéritives + 30 verrines salées..." class="w-full rounded-2xl border border-emeraldDeep/20 p-4 text-sm bg-cream focus:outline-none focus:border-terracotta"></textarea>
+                </div>
+
+                <div class="flex flex-wrap items-center justify-center gap-4">
+                    <button onclick="sendWhatsAppQuote()" class="px-8 py-4 rounded-full bg-emeraldDeep text-cream font-bold text-sm hover:bg-terracotta transition shadow-lg flex items-center gap-2.5">
+                        <i data-lucide="message-circle" class="w-5 h-5 text-goldWarm"></i>
+                        <span class="whitespace-nowrap">Envoyer sur WhatsApp (06 18 81 49 11)</span>
+                    </button>
+                    <button onclick="sendEmailQuote()" class="px-6 py-4 rounded-full bg-sand text-emeraldDeep font-bold text-sm hover:bg-goldWarm transition flex items-center gap-2">
+                        <i data-lucide="mail" class="w-4 h-4"></i>
+                        <span>Envoyer par Email</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER & COORDONNÉES -->
+    <footer id="contact" class="bg-emeraldDeep text-cream py-16 border-t border-goldWarm/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-10">
+            <div>
+                <h3 class="font-serif text-3xl font-bold text-goldLight">L'Arc en Ciel des Saveurs</h3>
+                <p class="text-sm text-cream/75 mt-3 leading-relaxed">
+                    Traiteur artisanal à Marange-Silvange (Lorraine). Créations salées et sucrées 100% fait maison sur commande.
+                </p>
+                <a href="https://www.facebook.com/profile.php?id=100064292120955" target="_blank" rel="noopener noreferrer"
+                   class="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#1877F2] text-white text-xs font-bold hover:opacity-90 transition">
+                    <span>Page Facebook • 1,8 K abonnés</span>
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                </a>
+            </div>
+
+            <div>
+                <h4 class="text-xs font-bold uppercase tracking-widest text-goldWarm mb-4">Coordonnées Directes</h4>
+                <ul class="space-y-2.5 text-sm text-cream/85">
+                    <li class="flex items-center gap-2.5"><i data-lucide="map-pin" class="w-4 h-4 text-terracotta shrink-0"></i> Marange-Silvange, France, 57535</li>
+                    <li class="flex items-center gap-2.5"><i data-lucide="phone" class="w-4 h-4 text-terracotta shrink-0"></i> <a href="tel:0618814911" class="hover:text-goldLight whitespace-nowrap">06 18 81 49 11</a></li>
+                    <li class="flex items-center gap-2.5"><i data-lucide="mail" class="w-4 h-4 text-terracotta shrink-0"></i> <a href="mailto:maite16031981@gmail.com" class="hover:text-goldLight">maite16031981@gmail.com</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-xs font-bold uppercase tracking-widest text-goldWarm mb-4">Commandes & Retrait</h4>
+                <p class="text-sm text-cream/75 leading-relaxed">
+                    Toutes nos créations sont préparées à la demande pour garantir une fraîcheur optimale. Pensez à réserver vos plateaux et menus festifs à l'avance.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LIGHTBOX PLEIN ÉCRAN -->
+    <div id="lightboxModal" class="fixed inset-0 bg-black/90 z-50 hidden items-center justify-center p-4" onclick="closeLightbox()">
+        <button class="absolute top-6 right-6 text-white hover:text-goldWarm p-2">
+            <i data-lucide="x" class="w-8 h-8"></i>
+        </button>
+        <div class="max-w-4xl max-h-[88vh] flex flex-col items-center" onclick="event.stopPropagation()">
+            <img id="lightboxImg" src="" alt="" class="max-h-[78vh] w-auto rounded-2xl shadow-2xl border-2 border-goldWarm/40 object-contain">
+            <p id="lightboxCaption" class="font-serif text-2xl text-goldLight mt-4 text-center"></p>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        // Galerie de 16 VRAIS PRODUITS (001 (8) logo et 001 (12) affiche St-Valentin ont été remplacés par 001 (4).jpg et 001 (7).jpg !)
+        const curatedPhotos = [
+            { file: "001 (3).jpg", title: "Feuilletés & Gourmandises Dorées", cat: "plateaux", badge: "Fait Maison", colors: ["#164235", "#C85A32"] },
+            { file: "001 (4).jpg", title: "Grand Plateau Réception Assorti", cat: "plateaux", badge: "Cocktail", colors: ["#0D2B22", "#D4A359"] },
+            { file: "001 (24).jpg", title: "Proposition de Verrines Salées", cat: "plateaux", badge: "1,20 € / pièce", colors: ["#C85A32", "#D4A359"] },
+            { file: "001 (44).jpg", title: "Pain Polaire Garnis (50 Pièces)", cat: "pains", badge: "50 Pièces", colors: ["#7C2D12", "#D4A359"] },
+            { file: "001 (46).jpg", title: "Pain Surprise Fait Maison", cat: "pains", badge: "22 €", colors: ["#164235", "#D4A359"] },
+            { file: "001 (5).jpg", title: "Plateau de Bouchées & Toasts", cat: "plateaux", badge: "Incontournable", colors: ["#3E2723", "#D4A359"] },
+            { file: "001 (7).jpg", title: "Assortiment Mini Burgers & Navettes", cat: "plateaux", badge: "Réception", colors: ["#1B4332", "#C85A32"] },
+            { file: "001 (15).jpg", title: "Brochettes Fraîcheur & Fruits", cat: "sucre", badge: "Fraîcheur", colors: ["#0D2B22", "#D4A359"] },
+            { file: "001 (18).jpg", title: "Mini Savarins & Bouchées Moelleuses", cat: "plateaux", badge: "Spécialité", colors: ["#9A3412", "#F3E5AB"] },
+            { file: "001 (21).jpg", title: "Mauricettes Garnies à la Charcuterie", cat: "plateaux", badge: "Création", colors: ["#164235", "#C85A32"] },
+            { file: "001 (28).jpg", title: "Tartelettes Garnies & Chantilly Salée", cat: "plateaux", badge: "Artisanal", colors: ["#4A1D1F", "#D4A359"] },
+            { file: "001 (30).jpg", title: "Bouchées Framboise & Crème Légère", cat: "sucre", badge: "Douceur", colors: ["#0D2B22", "#C85A32"] },
+            { file: "001 (34).jpg", title: "Mignardises Sucrées & Fruits Frais", cat: "sucre", badge: "Pâtisserie", colors: ["#78350F", "#F3E5AB"] },
+            { file: "001 (38).jpg", title: "Brochettes Tomates Mozza & Basilic", cat: "plateaux", badge: "Apéritif", colors: ["#164235", "#D4A359"] },
+            { file: "001 (41).jpg", title: "Douceurs Chantilly & Éclats Chocolat", cat: "sucre", badge: "Gourmandise", colors: ["#0D2B22", "#D4A359"] },
+            { file: "001 (45).jpg", title: "La Couronne Apéritive (15 Parts)", cat: "pains", badge: "15 €", colors: ["#581C87", "#D4A359"] }
+        ];
+
+        function createElegantPlaceholder(title, subtitle, c1 = "#0D2B22", c2 = "#D4A359") {
+            const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+                <defs>
+                    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="${c1}"/>
+                        <stop offset="100%" stop-color="#1a1a1a"/>
+                    </linearGradient>
+                </defs>
+                <rect width="800" height="600" fill="url(#g)"/>
+                <rect x="30" y="30" width="740" height="540" rx="24" fill="none" stroke="${c2}" stroke-width="2" stroke-opacity="0.45"/>
+                <text x="400" y="250" text-anchor="middle" fill="${c2}" font-family="Georgia, serif" font-size="28" font-weight="bold">L'Arc en Ciel des Saveurs</text>
+                <text x="400" y="330" text-anchor="middle" fill="#FDFBF7" font-family="Georgia, serif" font-size="32" font-weight="bold">${title.replace(/&/g, '&amp;')}</text>
+                <text x="400" y="385" text-anchor="middle" fill="${c2}" font-family="sans-serif" font-size="18" letter-spacing="2">${subtitle.replace(/&/g, '&amp;')}</text>
+            </svg>`;
+            return "data:image/svg+xml;utf8," + encodeURIComponent(svg);
+        }
+
+        function applyFallbacks() {
+            document.querySelectorAll('img').forEach(img => {
+                img.onerror = function() {
+                    this.onerror = null;
+                    const altText = this.getAttribute('alt') || "L'Arc en Ciel des Saveurs";
+                    const srcName = decodeURIComponent(this.getAttribute('src') || '');
+                    this.src = createElegantPlaceholder(altText, srcName);
+                };
+                if (img.complete && img.naturalWidth === 0) {
+                    img.onerror();
+                }
+            });
+        }
+
+        function renderGallery(filter = 'all') {
+            const grid = document.getElementById('photoGalleryGrid');
+            const items = filter === 'all' ? curatedPhotos : curatedPhotos.filter(p => p.cat === filter);
+
+            grid.innerHTML = items.map(item => {
+                const fallbackSrc = createElegantPlaceholder(item.title, item.badge, item.colors[0], item.colors[1]);
+                return `
+                    <div class="group relative rounded-3xl overflow-hidden shadow-md border border-goldWarm/25 aspect-[4/3] bg-emeraldDeep cursor-pointer card-luxury"
+                         onclick="openLightbox('${item.file.replace(/'/g, "\\'")}', '${item.title.replace(/'/g, "\\'")}', '${fallbackSrc.replace(/'/g, "\\'")}')">
+                        <img src="${item.file}" alt="${item.title}"
+                             onerror="this.onerror=null;this.src='${fallbackSrc}';"
+                             class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-emeraldDeep/90 via-emeraldDeep/15 to-transparent opacity-95 flex flex-col justify-between p-4">
+                            <div class="flex justify-between items-center">
+                                <span class="bg-goldWarm text-emeraldDeep text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow">${item.badge}</span>
+                            </div>
+                            <div>
+                                <h4 class="font-serif text-lg sm:text-xl font-bold text-cream leading-snug">${item.title}</h4>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function filterGallery(cat) {
+            document.querySelectorAll('.gal-filter').forEach(btn => {
+                if (btn.dataset.filter === cat) {
+                    btn.className = "gal-filter px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-emeraldDeep text-cream transition";
+                } else {
+                    btn.className = "gal-filter px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-white text-emeraldDeep hover:bg-emeraldDeep hover:text-cream transition";
+                }
+            });
+            renderGallery(cat);
+        }
+
+        // Gestion du Devis Interactif
+        const selectedItems = new Set();
+        function addItemToQuote(itemName) {
+            selectedItems.add(itemName);
+            updateQuoteUI();
+            document.getElementById('devis').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function removeItemFromQuote(itemName) {
+            selectedItems.delete(itemName);
+            updateQuoteUI();
+        }
+
+        function updateQuoteUI() {
+            const container = document.getElementById('selectedItemsList');
+            if (selectedItems.size === 0) {
+                container.innerHTML = `<span class="text-xs italic text-emeraldDeep/50">Cliquez sur « Ajouter » sur les cartes ou formules ci-dessus pour remplir votre panier...</span>`;
+                return;
+            }
+            container.innerHTML = Array.from(selectedItems).map(item => `
+                <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emeraldDeep text-cream text-xs font-semibold">
+                    ${item}
+                    <button onclick="removeItemFromQuote('${item.replace(/'/g, "\\'")}')" class="hover:text-terracotta">×</button>
+                </span>
+            `).join('');
+        }
+
+        function buildQuoteMessage() {
+            const type = document.getElementById('eventType').value;
+            const guests = document.getElementById('guestCount').value;
+            const date = document.getElementById('eventDate').value || 'À définir';
+            const notes = document.getElementById('customNotes').value;
+            const items = Array.from(selectedItems).join(', ') || 'À définir ensemble';
+
+            return `Bonjour Maïté (L'Arc en Ciel des Saveurs) !\n\nJe souhaiterais un devis pour :\n- Événement : ${type}\n- Nombre de convives : ${guests} personnes\n- Date souhaitée : ${date}\n- Sélection : ${items}\n- Précisions : ${notes || 'Aucune'}\n\nMerci d'avance !`;
+        }
+
+        function sendWhatsAppQuote() {
+            const msg = encodeURIComponent(buildQuoteMessage());
+            window.open(`https://wa.me/33618814911?text=${msg}`, '_blank');
+        }
+
+        function sendEmailQuote() {
+            const subject = encodeURIComponent("Demande de devis - L'Arc en Ciel des Saveurs");
+            const body = encodeURIComponent(buildQuoteMessage());
+            window.location.href = `mailto:maite16031981@gmail.com?subject=${subject}&body=${body}`;
+        }
+
+        function openLightbox(src, title, fallback) {
+            const modal = document.getElementById('lightboxModal');
+            const img = document.getElementById('lightboxImg');
+            img.onerror = function() {
+                this.onerror = null;
+                this.src = fallback || createElegantPlaceholder(title, "L'Arc en Ciel des Saveurs");
+            };
+            img.src = src;
+            document.getElementById('lightboxCaption').textContent = title;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeLightbox() {
+            const modal = document.getElementById('lightboxModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        applyFallbacks();
+        renderGallery('all');
+    </script>
+</body>
+</html>
